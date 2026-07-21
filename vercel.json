@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/visualize.py": {
+      "maxDuration": 90
+    }
+  }
+}

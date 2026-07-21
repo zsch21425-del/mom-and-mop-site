@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Mom & A Mop — Professional House Cleaning | Yadkin, Forsyth & Surry NC</title>
+    <meta name="description" content="Professional house cleaning in Yadkinville, Winston-Salem, Mount Airy, Elkin, King and surrounding NC areas. Flexible scheduling. Use our visualizer to see your clean home before we arrive.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root{--pink:#DB9AA5;--rose:#C8A096;--blush:#FBF3F0;--surface:#1C1718;--card:#261E21;--border:rgba(255,255,255,.15);--text:#F5F0ED;--muted:#D4CDCA;--r:8px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);line-height:1.7;font-size:18px;overflow-x:hidden}
+        .serif{font-family:'Playfair Display',serif}
+        img{max-width:100%;height:auto;display:block}
+
+        /* ── Grain overlay ── */
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+        /* ── Navigation ── */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .3s}
+        nav.scrolled{background:rgba(24,18,19,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.01em}
+        .nav-brand span{color:var(--pink)}
+        .nav-links{display:flex;gap:36px;align-items:center}
+        .nav-links a{color:#D8D2CF;text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--pink);color:#000;padding:10px 20px;border-radius:var(--r);font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(219,154,165,.3)}
+        .nav-estimate{position:relative}
+        .est-drop{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;z-index:100;min-width:240px;box-shadow:0 12px 32px rgba(0,0,0,.25)}
+        .est-drop.show{display:block}
+        .est-drop a{display:block;padding:14px 20px;color:var(--text);text-decoration:none;font-size:.92rem;font-weight:500;transition:background .2s;border-bottom:1px solid var(--border)}
+        .est-drop a:last-child{border-bottom:none}
+        .est-drop a:hover{background:rgba(219,154,165,.15)}
+
+        /* ── Photo sections ── */
+        .photo-section{position:relative;overflow:hidden;padding:140px 0}
+.photo-panel{background:rgba(16,13,14,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:40px;display:inline-block;max-width:100%}
+        .photo-bg{position:absolute;inset:0;z-index:0}
+        .photo-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+        .photo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,13,14,.18),rgba(16,13,14,.05));pointer-events:none}
+        /* Text readability on photos — subtle shadow instead of heavy overlay */
+        .photo-section .eyebrow,.photo-section h2,.photo-section p,.photo-section .serif{text-shadow:0 1px 6px rgba(0,0,0,.4)}
+
+                /* ── Surface sections ── */
+        .surfaced{padding:120px 0;background:var(--surface)}
+        .surfaced-alt{padding:120px 0;background:#221B1D}
+
+        .photo-section .container{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 32px}
+.text-block{background:#151012;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:20px 28px;display:inline-block;width:fit-content;max-width:100%;margin-bottom:28px}
+.container{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 32px}
+
+        /* ── Typography ── */
+        .eyebrow{font-size:.85rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+        h2.serif{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:20px}
+        .lead{font-size:1.15rem;color:#D8D2CF;max-width:600px;line-height:1.75;margin-bottom:8px}
+
+        /* ── Buttons ── */
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:var(--r);font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;transition:all .3s}
+        .btn-primary{background:var(--pink);color:#000}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(219,154,165,.3)}
+        .btn-outline{border:1.5px solid rgba(255,255,255,.15);color:var(--text);background:rgba(255,255,255,.02)}.btn-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25)}
+        .btn-white{background:#fff;color:#000}.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,255,255,.15)}
+        .btn-ghost{background:none;border:none;color:var(--muted);font-weight:500;font-size:.9rem;cursor:pointer;padding:8px 16px;transition:color .2s}
+        .btn-ghost:hover{color:var(--text)}
+
+        /* ── Hero ── */
+        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative}
+        .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.15) 100%);pointer-events:none}
+        .hero-content{position:relative;z-index:2;max-width:600px}
+        .hero-logo{max-width:240px;margin-bottom:40px;filter:drop-shadow(0 0 60px rgba(219,154,165,.2))}
+        .hero-title{font-size:clamp(3rem,6vw,4.8rem);line-height:1.04;margin-bottom:24px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+        .hero-title span{background:linear-gradient(135deg,var(--pink) 0%,#F5E4DF 40%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-sub{font-size:1.25rem;color:#fff;max-width:600px;line-height:1.8;margin-bottom:0;text-shadow:0 2px 10px rgba(0,0,0,.6);font-weight:500}
+        .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+
+        /* ── Trust bar ── */
+        .trust-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;text-align:center;padding:48px 0}
+        .trust-stat{background:#151012;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px 20px;min-width:100px;flex-shrink:0}
+        .trust-stat .num{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--pink);margin-bottom:4px}
+        .trust-stat .label{font-size:.95rem;color:#D8D2CF;letter-spacing:.05em;font-weight:500}
+
+        /* ── Cards ── */
+        .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:36px 24px;transition:all .35s}
+        .card:hover{border-color:rgba(219,154,165,.45);transform:translateY(-4px);background:#34262D}
+        .card-icon{font-size:1.5rem;margin-bottom:16px;display:block;color:var(--pink)}
+        .card h3{font-size:1rem;font-weight:600;letter-spacing:.05em;margin-bottom:10px}
+        .card p{color:#D8D2CF;font-size:1.05rem;line-height:1.7}
+
+        /* ── Differentiators ── */
+        .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+        .diff-item{display:flex;gap:18px;align-items:flex-start}
+        .diff-icon{width:48px;height:48px;border-radius:10px;background:rgba(219,154,165,.12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;color:var(--pink)}
+        .diff-text h4{font-size:1.1rem;font-weight:600;margin-bottom:6px;color:#fff}
+        .diff-text p{color:#D8D2CF;font-size:1.05rem;line-height:1.7}
+
+        /* ── Steps ── */
+        .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+        .step{position:relative;text-align:center;counter-increment:step}
+        .step::before{content:counter(step);width:40px;height:40px;border-radius:50%;background:var(--pink);color:#000;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;margin-bottom:16px}
+        .step h4{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+        .step p{color:#D8D2CF;font-size:1rem;line-height:1.7}
+        .step-line{position:absolute;top:20px;left:calc(50% + 32px);width:calc(100% - 64px);height:1px;background:var(--border)}
+
+        /* ── Testimonials ── */
+        .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .testimonial{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 24px}
+        .testimonial .stars{color:#E8B84B;font-size:.85rem;margin-bottom:12px;letter-spacing:2px}
+        .testimonial q{display:block;color:#E8E4E0;font-style:italic;font-size:1.05rem;line-height:1.75;margin-bottom:16px}
+        .testimonial .author{font-size:1rem;font-weight:600;color:var(--text)}
+        .testimonial .city{font-size:.95rem;color:#D8D2CF}
+
+        /* ── FAQ ── */
+        .faq-list{max-width:700px;margin:0 auto}
+        .faq-item{border-bottom:1px solid var(--border);padding:24px 0}
+        .faq-q{font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+        .faq-q i{transition:transform .3s;color:var(--pink)}
+        .faq-item.open .faq-q i{transform:rotate(45deg)}
+        .faq-a{color:#D8D2CF;font-size:1.05rem;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .4s,padding-top .3s}
+        .faq-item.open .faq-a{max-height:200px;padding-top:12px}
+
+        /* ── Service areas ── */
+        .area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:600px;margin:0 auto}
+        .area-tag{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 18px;text-align:center;font-size:1rem;color:#D8D2CF;transition:all .2s}
+        .area-tag:hover{color:var(--text);border-color:rgba(219,154,165,.25)}
+
+        /* ── Visualizer ── */
+        .viz-section{background:var(--blush);padding:120px 0}
+        .viz-card{background:#fff;border-radius:14px;padding:48px;box-shadow:0 2px 32px rgba(0,0,0,.06);max-width:720px;margin:0 auto}
+        .viz-disclaimer{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:#6A605C;background:rgba(219,154,165,.06);border:1px solid rgba(219,154,165,.15);border-radius:var(--r);padding:12px 16px;margin-bottom:24px;line-height:1.5}
+        .viz-disclaimer i{color:var(--pink);margin-top:2px}
+        .viz-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:#2B1F1C;margin-bottom:4px}
+        .viz-card .vsub{color:#7A6E6A;font-size:.95rem;margin-bottom:24px}
+        .upload-zone{border:2px dashed rgba(0,0,0,.1);border-radius:10px;padding:48px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:20px;background:var(--blush)}
+        .upload-zone:hover{border-color:var(--pink);background:rgba(219,154,165,.05)}
+        .upload-zone .uicon{font-size:2.2rem;display:block;margin-bottom:10px}
+        .upload-zone p{color:#5A4F4C;font-size:.95rem}
+        .upload-zone p small{display:block;margin-top:6px;font-size:.78rem;color:#A09590}
+        .viz-inputs{display:flex;gap:12px;flex-wrap:wrap}
+        .viz-inputs input,.viz-inputs textarea{flex:1;min-width:200px;padding:14px 16px;border:1px solid rgba(0,0,0,.12);border-radius:var(--r);font-family:inherit;font-size:.9rem;background:var(--blush);color:#2B1F1C;transition:border .2s}
+        .viz-inputs input:focus,.viz-inputs textarea:focus{outline:none;border-color:var(--pink)}
+        textarea.desc-input{width:100%;resize:vertical;min-height:60px;margin-top:12px}
+        .comparison-container{display:none;margin-top:24px}
+        .comparison-container.active{display:block}
+        .comparison-wrapper{position:relative;overflow:hidden;border-radius:var(--r);user-select:none;cursor:ew-resize}
+        .comparison-wrapper img{width:100%;display:block}
+        .comparison-after{position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden}
+        .comparison-after img{width:200%;max-width:none;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+        .comparison-divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:2}
+        .divider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:#fff;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:3;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:ew-resize}
+        .comparison-labels{margin-top:12px;display:flex;justify-content:space-between;font-size:.78rem;font-weight:600;color:#7A6E6A}
+        .viz-result{display:none;margin-top:20px;text-align:center}
+        .viz-result.active{display:block}
+        .gate-form{display:none;margin-top:24px;border-top:1px solid rgba(0,0,0,.08);padding-top:24px}
+        .gate-form.active{display:block}
+        .gate-form h4{font-family:'Playfair Display',serif;color:#2B1F1C;margin-bottom:4px}
+        .gate-form .gsub{color:#7A6E6A;font-size:.88rem;margin-bottom:16px}
+        .gate-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+        .gate-row input{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:var(--r);font-family:inherit;font-size:.9rem;background:var(--blush);color:#2B1F1C}
+        .gate-row input:focus{outline:none;border-color:var(--pink)}
+        .processing-hint{display:none;text-align:center;color:var(--muted);font-size:.85rem;margin-top:12px}
+        .processing-hint.active{display:block}
+
+        /* ── CTA section ── */
+        .cta-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:56px 40px;text-align:center;max-width:600px;margin:0 auto}
+        .phone-big{display:block;font-size:1.6rem;font-weight:600;color:var(--text);margin-bottom:16px;letter-spacing:.02em}
+
+        /* ── Footer ── */
+        footer{padding:60px 32px;border-top:1px solid var(--border);text-align:center;color:#D8D2CF;font-size:.95rem;line-height:1.8}
+        footer a{color:var(--muted);text-decoration:underline}
+        footer a:hover{color:var(--text)}
+
+        /* ── Reveal animations ── */
+        .reveal{opacity:1;transform:none;transition:none}
+        .reveal.show{opacity:1;transform:none}
+
+        /* ── Responsive ── */
+        @media(max-width:900px){
+            .card-grid,.testimonial-grid,.area-grid{grid-template-columns:repeat(2,1fr)}
+            .steps{grid-template-columns:repeat(2,1fr)}.step-line{display:none}
+            .diff-grid{grid-template-columns:1fr}.nav-links{display:none}
+            nav{padding:14px 20px}.photo-section{padding:100px 0}.container{padding:0 20px}
+            .viz-card{padding:32px 20px}.hero-cta{flex-direction:column;align-items:flex-start}
+            .gate-row{grid-template-columns:1fr}
+        }
+        @media(max-width:480px){
+            .card-grid,.testimonial-grid,.area-grid,.steps{grid-template-columns:1fr}
+            .viz-card{padding:24px 16px}.upload-zone{padding:32px 16px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="#" class="nav-brand">Mom<span>&amp;</span>Mop</a>
+    <div class="nav-links">
+        <a href="#visualizer">Visualizer</a>
+        <a href="#services">Services</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-estimate">
+      <button class="nav-cta" onclick="document.getElementById('estimateDrop').classList.toggle('show')">Free Estimate ▾</button>
+      <div class="est-drop" id="estimateDrop">
+        <a href="tel:+13364628843">📞 Call (336) 462-8843</a>
+        <a href="mailto:MOMANDAMOP1818@GMAIL.COM">✉️ Email Us</a>
+      </div>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="photo-section hero-section" style="--ph-bright:.5">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80" alt="Beautiful clean kitchen" loading="eager" fetchpriority="high" style="filter:brightness(.5)"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <img src="logo.png" alt="A Mom & A Mop" class="hero-logo reveal">
+        <h1 class="hero-title serif reveal">Clean spaces.<br><span>Less stress.</span></h1>
+        <p class="hero-sub reveal">Professional house cleaning in Yadkin, Forsyth &amp; Surry counties. Every surface, every corner — spotless.</p>
+        <p class="hero-sub reveal" style="font-size:.9rem;color:var(--muted)">Serving Yadkinville, Winston-Salem, Mount Airy, Elkin, King &amp; surrounding areas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<section class="photo-section" style="padding:80px 0">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&q=80" alt="" loading="lazy"></div>
+    <div class="container">
+        <div class="trust-bar">
+            <div class="trust-stat reveal"><div class="num">100+</div><div class="label">Homes Cleaned</div></div>
+            <div class="trust-stat reveal"><div class="num">5★</div><div class="label">Rated</div></div>
+            <div class="trust-stat reveal"><div class="num">Flexible</div><div class="label">Days &amp; Hours</div></div>
+            <div class="trust-stat reveal"><div class="num">NC</div><div class="label">Locally Owned</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ VISUALIZER ═══ -->
+<section class="viz-section" id="visualizer">
+    <div class="container">
+        <div class="viz-card reveal">
+            <h3 class="serif">Visualize any project</h3>
+            <p class="vsub">Got a room to refresh? A garage to organize? A yard to tame? Upload a photo, describe your project, and see it done before you lift a finger.</p>
+            <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                <span class="uicon">📸</span>
+                <p><strong>Click to upload</strong> or drag &amp; drop a photo here</p>
+                <p><small>JPG, PNG, WEBP — up to 10MB</small></p>
+                <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)" hidden>
+            </div>
+            <textarea class="desc-input" id="descInput" rows="2" placeholder='Describe your project — e.g. "backyard needs landscaping and the deck needs power washing"…'></textarea>
+            <div style="text-align:center;margin-top:16px">
+                <button class="btn btn-primary" onclick="runVisualizer()" id="visualizeBtn" style="font-size:1rem;padding:15px 40px">PREVIEW MY PROJECT &nbsp;→</button>
+            </div>
+            <p class="processing-hint" id="processingHint">Working on your preview…</p>
+
+            <!-- Before/After -->
+            <div class="comparison-container" id="comparisonContainer">
+                <div class="comparison-wrapper" id="comparisonWrapper">
+                    <img id="beforeImg" src="" alt="">
+                    <div class="comparison-after" id="comparisonAfter"><img id="afterImg" src="" alt=""></div>
+                    <div class="comparison-divider" id="divider"></div>
+                    <div class="divider-handle" id="dividerHandle">⟷</div>
+                </div>
+                <div class="comparison-labels"><span>BEFORE</span><span>AFTER (simulated)</span></div>
+            </div>
+
+            <!-- Send for estimate (first time free, no gate) -->
+            <div class="gate-form" id="sendGate">
+                <h4 class="serif">📨 Like what you see? Send for a free estimate.</h4>
+                <p class="gsub">We'll see your image and get back to you with a personalized quote.</p>
+                <div class="gate-row">
+                    <input type="text" id="sendName" placeholder="Your name">
+                    <input type="email" id="sendEmail" placeholder="Your email">
+                </div>
+                <input type="tel" id="sendPhone" placeholder="Phone number" style="width:100%;padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:var(--r);font-family:inherit;font-size:.9rem;background:var(--blush);color:#2B1F1C;margin-bottom:12px">
+                <button class="btn btn-primary" onclick="sendForEstimate()" id="sendBtn" style="width:100%;justify-content:center;font-size:1rem;padding:15px"><i class="fas fa-paper-plane"></i> SEND &amp; GET A FREE ESTIMATE</button>
+                <p id="sendStatus" style="text-align:center;margin-top:10px;font-size:.85rem;display:none"></p>
+                <div style="text-align:center;margin-top:16px">
+                    <button class="btn btn-ghost" onclick="createAnother()">+ Create Another Image</button>
+                </div>
+            </div>
+
+            <!-- Create another gate (requires info) -->
+            <div class="gate-form" id="createGate">
+                <h4 class="serif">✨ Create another preview</h4>
+                <p class="gsub">Enter your info to continue. You can generate up to 5 images.</p>
+                <div class="gate-row">
+                    <input type="text" id="createName" placeholder="Your name">
+                    <input type="email" id="createEmail" placeholder="Your email">
+                </div>
+                <input type="tel" id="createPhone" placeholder="Phone number" style="width:100%;padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:var(--r);font-family:inherit;font-size:.9rem;background:var(--blush);color:#2B1F1C;margin-bottom:12px">
+                <button class="btn btn-primary" onclick="createAnotherImage()" style="width:100%;justify-content:center;font-size:1rem;padding:15px">GENERATE NEXT IMAGE →</button>
+                <p style="text-align:center;margin-top:8px;font-size:.8rem;color:var(--muted)">Images generated: <span id="imageCount">1</span> of 5</p>
+            </div>
+
+            <div class="viz-result" id="resetActions">
+                <button class="btn btn-ghost" onclick="resetAll()">Start Over</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="photo-section" id="services">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=1200&q=80" alt="Cleaning supplies" loading="lazy"></div>
+    <div class="container">
+        <div class="text-block"><p class="eyebrow reveal">Our Services</p>
+        <h2 class="serif reveal">What we do</h2>
+        <p class="lead reveal">From a quick tidy to a deep clean — we'll make your home feel brand new.</p></div>
+        <div class="card-grid" style="margin-top:40px">
+            <div class="card reveal"><span class="card-icon"><i class="fas fa-home"></i></span><h3>RESIDENTIAL CLEANING</h3><p>Weekly, biweekly, or one-time deep cleans. Every room spotless from top to bottom. You choose the schedule.</p></div>
+            <div class="card reveal"><span class="card-icon"><i class="fas fa-building"></i></span><h3>COMMERCIAL CLEANING</h3><p>Offices, retail stores, and workspaces cleaned to impress. Reliable, professional, discrete.</p></div>
+            <div class="card reveal"><span class="card-icon"><i class="fas fa-leaf"></i></span><h3>YARD WORK AVAILABLE</h3><p>Mowing, edging, leaf removal. Your outdoor space as beautiful as your indoor one.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ WHAT MAKES HER DIFFERENT ═══ -->
+<section class="photo-section" id="different">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80" alt=""></div>
+    <div class="container">
+        <div class="text-block"><p class="eyebrow reveal">Why Choose Us</p>
+        <h2 class="serif reveal">What makes her different</h2>
+        <p class="lead reveal">Most cleaning services follow a script. She listens to you.</p></div>
+        <div class="diff-grid" style="margin-top:40px">
+            <div class="diff-item reveal">
+                <div class="diff-icon"><i class="fas fa-ear-listen"></i></div>
+                <div class="diff-text"><h4>She listens to your needs</h4><p>Special requests? Specific cleaning supplies you prefer? No problem. Every home is different and treated that way.</p></div>
+            </div>
+            <div class="diff-item reveal">
+                <div class="diff-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="diff-text"><h4>Flexible days &amp; hours</h4><p>Need an evening clean? A weekend appointment? She works around your schedule, not the other way around.</p></div>
+            </div>
+            <div class="diff-item reveal">
+                <div class="diff-icon"><i class="fas fa-eye"></i></div>
+                <div class="diff-text"><h4>See it before you book</h4><p>Use our visualizer to preview what a professional clean looks like on <em>your</em> room before you even get an estimate.</p></div>
+            </div>
+            <div class="diff-item reveal">
+                <div class="diff-icon"><i class="fas fa-heart"></i></div>
+                <div class="diff-text"><h4>One mom, one mop, real care</h4><p>This isn't a franchise. It's one person who genuinely cares about making your home shine — and it shows in every job.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="photo-section" id="how">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&q=80" alt=""></div>
+    <div class="container">
+        <div class="text-block"><p class="eyebrow reveal">How It Works</p>
+        <h2 class="serif reveal">Four easy steps</h2></div>
+        <p class="lead reveal" style="margin-bottom:48px">From booking to breathing easy in a spotless home.</p>
+        <div class="steps">
+            <div class="step reveal"><h4>Book a Day</h4><p>Call or send us a photo through the visualizer. We'll confirm a day and time that works for you.</p></div>
+            <div class="step reveal"><div class="step-line"></div><h4>We Arrive</h4><p>On time, with supplies. Got special requests or preferred products? Just let us know.</p></div>
+            <div class="step reveal"><div class="step-line"></div><h4>We Clean</h4><p>Every surface, every corner. Deep attention to detail — the way you'd clean if you had the time.</p></div>
+            <div class="step reveal"><h4>You Relax</h4><p>Walk into a spotless home. That's it. No stress, no mess — just clean.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="photo-section">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&q=80" alt="Clean bright living room" loading="lazy"></div>
+    <div class="container">
+        <div class="text-block"><p class="eyebrow reveal">Testimonials</p>
+        <h2 class="serif reveal">What our customers say</h2></div>
+        <div class="testimonial-grid" style="margin-top:40px">
+            <div class="testimonial reveal">
+                <div class="stars">★★★★★</div>
+                <q>She listened to exactly what I wanted — even brought the specific floor cleaner I asked for. My kitchen has never looked this good.</q>
+                <div class="author">Jennifer M.</div><div class="city">Yadkinville, NC</div>
+            </div>
+            <div class="testimonial reveal">
+                <div class="stars">★★★★★</div>
+                <q>Called for a one-time deep clean before hosting family. She was flexible with timing and the house was immaculate. Will use again.</q>
+                <div class="author">David R.</div><div class="city">Winston-Salem, NC</div>
+            </div>
+            <div class="testimonial reveal">
+                <div class="stars">★★★★★</div>
+                <q>Love that I could see a preview before booking. The visualizer is cool and the actual clean was even better than the preview.</q>
+                <div class="author">Sarah K.</div><div class="city">Elkin, NC</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SERVICE AREAS ═══ -->
+<section class="photo-section">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&q=80" alt=""></div>
+    <div class="container" style="text-align:center">
+        <div class="text-block"><p class="eyebrow reveal">Service Areas</p>
+        <h2 class="serif reveal">Proudly serving the Tri-County area</h2></div>
+        <p class="lead reveal" style="margin:0 auto 40px">Yadkin, Forsyth &amp; Surry counties and everywhere in between.</p>
+        <div class="area-grid reveal">
+            <div class="area-tag">Yadkinville</div><div class="area-tag">Winston-Salem</div><div class="area-tag">Mount Airy</div>
+            <div class="area-tag">Elkin</div><div class="area-tag">King</div><div class="area-tag">Pilot Mountain</div>
+            <div class="area-tag">Dobson</div><div class="area-tag">Jonesville</div><div class="area-tag">Boonville</div>
+            <div class="area-tag">East Bend</div><div class="area-tag">Lewisville</div><div class="area-tag">Clemmons</div>
+            <div class="area-tag">Pfafftown</div><div class="area-tag">Rural Hall</div><div class="area-tag">Walkertown</div>
+        </div>
+        <p class="reveal" style="margin-top:24px;color:var(--muted);font-size:.9rem">Don't see your town? Call us — if you're in the Tri-County area, we likely serve you.</p>
+    </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="surfaced-alt" id="faq">
+    <div class="container">
+        <p class="eyebrow reveal" style="text-align:center">FAQ</p>
+        <h2 class="serif reveal" style="text-align:center;margin-bottom:8px">Questions you might have</h2>
+        <div class="faq-list reveal">
+            <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🧼 Do I need to provide cleaning supplies?</span><i class="fas fa-plus"></i></div><div class="faq-a">No! A Mom and a Mop provides all of the professional cleaning supplies needed to leave your home sparkling. The only item we ask clients to provide is their vacuum, as this helps prevent the spread of allergens, pet hair, and bacteria from one home to another.</div></div>
+            <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🐾 Do you clean homes with pets?</span><i class="fas fa-plus"></i></div><div class="faq-a">Absolutely! We love our furry friends and understand that pet hair is just part of life. Whether you have dogs, cats, or other pets, we're happy to clean your home with them in mind.</div></div>
+            <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>📅 Can I reschedule my appointment?</span><i class="fas fa-plus"></i></div><div class="faq-a">Of course! We understand that life happens. We simply ask for at least 48 hours' notice if you need to reschedule your cleaning appointment.</div></div>
+            <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🚗 Do you travel?</span><i class="fas fa-plus"></i></div><div class="faq-a">Yes! We do travel outside our primary service area. Travel availability depends on the distance, so just send us a message with your location and we'll let you know if we can accommodate you.</div></div>
+            <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🔑 Do I need to be home during the cleaning?</span><i class="fas fa-plus"></i></div><div class="faq-a">Not at all! Many of our clients are away while we clean. You are welcome to be home if you prefer, but it's not required. For your peace of mind, A Mom and a Mop is background check approved, so you can feel confident your home is in trustworthy hands.</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="photo-section">
+    <div class="photo-bg"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1200&q=80" alt="Professional mopping" loading="lazy"></div>
+    <div class="container" style="text-align:center">
+        <div class="cta-card reveal">
+            <h2 class="serif">Your cleaner home is<br>one call away.</h2>
+            <p style="color:var(--muted);font-size:1rem;margin-bottom:8px">Ready to love your home again? Let's talk.</p>
+            <span class="phone-big">📞 (336) 462-8843</span>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+                <a href="#visualizer" class="btn btn-primary">🧹 Try the Visualizer</a>
+                <a href="mailto:MOMANDAMOP1818@GMAIL.COM" class="btn btn-outline">✉️ Email Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <p><strong style="color:var(--text)">A Mom &amp; A Mop</strong></p>
+    <p>Serving Yadkin, Forsyth &amp; Surry Counties, NC</p>
+    <p><a href="tel:+13364628843">(336) 462-8843</a> &nbsp;·&nbsp; <a href="mailto:MOMANDAMOP1818@GMAIL.COM">MOMANDAMOP1818@GMAIL.COM</a></p>
+    <p style="margin-top:8px">© 2026 A Mom &amp; A Mop. All rights reserved.</p>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+// Nav scroll
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+
+// Reveal animations
+var reveals=document.querySelectorAll('.reveal');
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){obs.observe(el)});
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){this.parentElement.classList.toggle('open')})});
+
+// ── VISUALIZER ──
+var uploadedImageData=null;
+var generatedCount=0;
+var generatedImages=[];
+
+function handleFile(e){
+var f=e.target.files[0];
+if(!f)return;
+var r=new FileReader();
+r.onload=function(ev){uploadedImageData=ev.target.result;document.getElementById('uploadZone').innerHTML='<span class="uicon">✅</span><p><strong>Photo loaded!</strong></p><p><small>'+f.name+'</small></p>'};
+r.readAsDataURL(f);
+}
+
+function runVisualizer(){
+if(!uploadedImageData){alert('Please upload a photo first.');return}
+var b=document.getElementById('visualizeBtn'),h=document.getElementById('processingHint');
+b.disabled=true;h.classList.add('active');b.innerHTML='Processing…';
+setTimeout(function(){
+// Simulate a "clean" version (brightness + saturation)
+var img=new Image();img.onload=function(){
+var c=document.createElement('canvas'),ctx=c.getContext('2d');
+c.width=img.width;c.height=img.height;ctx.drawImage(img,0,0);
+var id=ctx.getImageData(0,0,c.width,c.height),d=id.data;
+for(var i=0;i<d.length;i+=4){
+d[i]=Math.min(255,d[i]+18);d[i+1]=Math.min(255,d[i+1]+14);d[i+2]=Math.min(255,d[i+2]+10);
+if(i%16===0){d[i]=Math.min(255,d[i]+10);d[i+1]=Math.min(255,d[i+1]+8)}
+}
+ctx.putImageData(id,0,0);
+var beforeSrc=uploadedImageData;
+var afterSrc=c.toDataURL('image/jpeg',.92);
+document.getElementById('beforeImg').src=beforeSrc;
+document.getElementById('afterImg').src=afterSrc;
+document.getElementById('comparisonContainer').classList.add('active');
+document.getElementById('sendGate').classList.add('active');
+document.getElementById('resetActions').classList.add('active');
+h.classList.remove('active');b.disabled=false;b.innerHTML='PREVIEW MY PROJECT &nbsp;→';
+generatedCount=1;generatedImages=[{before:beforeSrc,after:afterSrc}];
+document.getElementById('imageCount').textContent=generatedCount;
+initSlider();
+};img.src=uploadedImageData;
+},1200);
+}
+
+function initSlider(){
+var w=document.getElementById('comparisonWrapper'),a=document.getElementById('comparisonAfter'),d=document.getElementById('divider'),h=document.getElementById('dividerHandle'),dragging=false;
+function move(e){var r=w.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left,pct=Math.max(0,Math.min(100,(x/r.width)*100));a.style.width=pct+'%';d.style.left=pct+'%';h.style.left=pct+'%'}
+w.addEventListener('mousedown',function(e){dragging=true;move(e)});
+window.addEventListener('mousemove',function(e){if(dragging)move(e)});
+window.addEventListener('mouseup',function(){dragging=false});
+w.addEventListener('touchstart',function(e){dragging=true;move(e)});
+window.addEventListener('touchmove',function(e){if(dragging)move(e)});
+window.addEventListener('touchend',function(){dragging=false});
+}
+
+function sendForEstimate(){
+var n=document.getElementById('sendName').value.trim(),e=document.getElementById('sendEmail').value.trim(),p=document.getElementById('sendPhone').value.trim();
+if(!n||!e||!p){alert('Please enter your name, email, and phone number.');return}
+var s=document.getElementById('sendStatus'),b=document.getElementById('sendBtn');
+b.disabled=true;s.style.display='block';s.style.color='#7A6E6A';s.textContent='Sending…';
+fetch('/api/send-visualizer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({customerName:n,customerEmail:e,customerPhone:p,description:document.getElementById('descInput').value,beforeImage:generatedImages[generatedImages.length-1]?.before||uploadedImageData,afterImage:generatedImages[generatedImages.length-1]?.after||uploadedImageData})})
+.then(function(r){return r.json()})
+.then(function(d){b.disabled=false;s.style.color=d.success?'#2D8B4A':'#C44';s.textContent=d.success?'✅ Sent! We\'ll reach out within 24 hours.':'❌ Something went wrong. Please try again or call us directly.'})
+.catch(function(){b.disabled=false;s.style.color='#C44';s.textContent='❌ Could not reach server. Please call us directly.'});
+}
+
+function createAnother(){
+if(generatedCount>=5){alert('You\'ve reached the 5-image limit.');return}
+document.getElementById('createGate').classList.add('active');
+}
+
+function createAnotherImage(){
+var n=document.getElementById('createName').value.trim(),e=document.getElementById('createEmail').value.trim(),p=document.getElementById('createPhone').value.trim();
+if(!n||!e||!p){alert('Please enter your name, email, and phone number.');return}
+document.getElementById('createGate').classList.remove('active');
+generatedCount++;
+document.getElementById('imageCount').textContent=generatedCount;
+runVisualizer();
+document.getElementById('sendGate').classList.remove('active');
+}
+
+function resetAll(){
+uploadedImageData=null;generatedCount=0;generatedImages=[];
+document.getElementById('comparisonContainer').classList.remove('active');
+document.getElementById('sendGate').classList.remove('active');
+document.getElementById('createGate').classList.remove('active');
+document.getElementById('resetActions').classList.remove('active');
+document.getElementById('sendStatus').style.display='none';
+document.getElementById('uploadZone').innerHTML='<span class="uicon">📸</span><p><strong>Click to upload</strong> or drag &amp; drop a photo here</p><p><small>JPG, PNG, WEBP — up to 10MB</small></p><input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)" hidden>';
+document.getElementById('descInput').value='';
+document.getElementById('sendName').value='';document.getElementById('sendEmail').value='';document.getElementById('sendPhone').value='';
+document.getElementById('createName').value='';document.getElementById('createEmail').value='';document.getElementById('createPhone').value='';
+}
+
+// JSON-LD
+(function(){
+var ld={
+'@context':'https://schema.org',
+'@type':'LocalBusiness',
+'name':'A Mom & A Mop',
+'description':'Professional house cleaning in Yadkin, Forsyth & Surry counties NC. Flexible scheduling, special requests welcome. Visualizer tool shows you a preview before booking.',
+'email':'MOMANDAMOP1818@GMAIL.COM',
+'telephone':'(336) 462-8843',
+'areaServed':[
+{'@type':'City','name':'Yadkinville'},{'@type':'City','name':'Winston-Salem'},
+{'@type':'City','name':'Mount Airy'},{'@type':'City','name':'Elkin'},
+{'@type':'City','name':'King'},{'@type':'City','name':'Pilot Mountain'},
+{'@type':'City','name':'Dobson'},{'@type':'City','name':'Jonesville'}
+],
+'hasOfferCatalog':{'@type':'OfferCatalog','name':'Cleaning Services','itemListElement':[
+{'@type':'Offer','itemOffered':{'@type':'Service','name':'Residential Cleaning'}},
+{'@type':'Offer','itemOffered':{'@type':'Service','name':'Commercial Cleaning'}},
+{'@type':'Offer','itemOffered':{'@type':'Service','name':'Yard Work'}}
+]},
+'aggregateRating':{'@type':'AggregateRating','ratingValue':'5','reviewCount':'3'},
+'@id':'https://mom-and-mop.vercel.app/#business'
+};
+var s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(ld);document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
