@@ -1,4 +1,5 @@
 {
+  "functionFailoverRegions": ["iad1", "sfo1"],
   "functions": {
     "api/visualize.py": {
       "maxDuration": 90
